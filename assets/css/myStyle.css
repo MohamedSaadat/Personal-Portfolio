@@ -1,9 +1,9 @@
-.showNavLinksList{
-    transform: translate(0%);
+.showNavLinksList {
+  transform: translate(0%);
 }
 /* ------------------- media ------------------- */
 @media all and (min-width: 1025px) {
-    .mobile-menu{
-        display: none;
-    }
+  .mobile-menu {
+    display: none;
+  }
 }

@@ -132,7 +132,7 @@
   <main id="main-content">
     <!-- ============================================
          HERO SECTION - Modern Split Layout Design
-         ============================================ -->
+        ============================================ -->
     <section id="hero-section" class="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16"
       aria-labelledby="hero-title">
       <!-- Background Elements -->
@@ -670,6 +670,7 @@
       aria-labelledby="portfolio-title">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full filter blur-3xl opacity-10"></div>
       <div class="container mx-auto max-w-7xl relative z-10">
+        <!-- title -->
         <div class="text-center mb-16">
           <span class="text-primary text-lg font-medium mb-3 block">أعمالي</span>
           <h2 id="portfolio-title" class="text-5xl font-black mb-4">
@@ -678,36 +679,25 @@
           </h2>
           <div class="w-24 h-1.5 bg-linear-to-r from-primary to-secondary mx-auto rounded-full"></div>
         </div>
-
-        <div class="flex justify-center gap-4 mb-12 flex-wrap" id="portfolio-filters" role="group"
-          aria-label="فلترة المشاريع">
-          <button
-            class="portfolio-filter active px-8 py-3 rounded-xl bg-linear-to-r from-primary to-secondary text-white font-bold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
-            data-filter="all" aria-pressed="true" type="button">
-            الكل
-          </button>
-          <button
-            class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700"
-            data-filter="web" aria-pressed="false" type="button">
-            مواقع الويب
-          </button>
-          <button
-            class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700"
-            data-filter="app" aria-pressed="false" type="button">
-            التطبيقات
-          </button>
-          <button
-            class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700"
-            data-filter="design" aria-pressed="false" type="button">
-            التصميم
-          </button>
-          <button
-            class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700"
-            data-filter="ecommerce" aria-pressed="false" type="button">
-            التجارة الإلكترونية
-          </button>
-        </div>
-
+        <!-- tabs -->
+        <div class="flex justify-center gap-4 mb-12 flex-wrap" id="portfolio-filters">
+            <button class="portfolio-filter px-8 py-3 rounded-xl font-bold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 bg-linear-to-r from-primary to-secondary text-white shadow-lg shadow-primary/50 hover:bg-slate-100 dark:hover:bg-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700" data-filter="all">
+              الكل
+            </button>
+            <button class="portfolio-filter px-8 py-3 rounded-xl font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700" data-filter="web">
+              مواقع الويب
+            </button>
+            <button class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700" data-filter="app">
+              التطبيقات
+            </button>
+            <button class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700" data-filter="design">
+              التصميم
+            </button>
+            <button class="portfolio-filter px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700" data-filter="ecommerce">
+              التجارة الإلكترونية
+            </button>
+          </div>
+        <!-- items -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
           <div
             class="portfolio-item group relative bg-slate-50 dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-primary transition-all duration-300"
@@ -1078,7 +1068,7 @@
             </div>
           </div>
         </div>
-
+        <!-- 3 -->
         <div class="text-center mt-16">
           <a href="#contact"
             class="inline-block bg-linear-to-r from-primary to-secondary px-12 py-4 rounded-xl text-lg font-bold text-white hover:-translate-y-1 transition-all duration-300">

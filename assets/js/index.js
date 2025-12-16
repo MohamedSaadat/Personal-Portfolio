@@ -2,6 +2,9 @@
 // id
 var themeToggleBTN = document.getElementById("theme-toggle-button");
 var scrollToTopBTN = document.getElementById("scroll-to-top");
+var testimonialsCarousel = document.getElementById("testimonials-carousel");
+var prevTestimonialBTN = document.getElementById("prev-testimonial");
+var nextTestimonialBTN = document.getElementById("next-testimonial");
 // querySelector
 var menuBTN = document.querySelector(".mobile-menu");
 var navLinksList = document.querySelector(".nav-links");
@@ -10,6 +13,8 @@ var navLinks = document.querySelectorAll(".nav-links a");
 var sections = document.querySelectorAll("section");
 var filterButtons = document.querySelectorAll(".portfolio-filter");
 var portfolioItems = document.querySelectorAll(".portfolio-item");
+var testimonialCard = document.querySelectorAll(".testimonial-card");
+var carouselIndicator = document.querySelectorAll(".carousel-indicator");
 // ---------------------- Events ------------------------
 /*[#1]scrollSpy*/
 document.addEventListener("scroll", () => {
@@ -45,12 +50,29 @@ themeToggleBTN.addEventListener("click", () => {
 /*[#3]navs & tabs*/
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    filterButtons.forEach((btn) => btn.classList.remove(
-      "active","hover:shadow-lg","hover:shadow-primary/50","bg-linear-to-r","from-primary","to-secondary","text-white","shadow-lg","shadow-primary/50"
-    ));
+    filterButtons.forEach((btn) =>
+      btn.classList.remove(
+        "active",
+        "hover:shadow-lg",
+        "hover:shadow-primary/50",
+        "bg-linear-to-r",
+        "from-primary",
+        "to-secondary",
+        "text-white",
+        "shadow-lg",
+        "shadow-primary/50"
+      )
+    );
     button.classList.add(
       "active",
-      "hover:shadow-lg","hover:shadow-primary/50","bg-linear-to-r","from-primary","to-secondary","text-white","shadow-lg","shadow-primary/50"
+      "hover:shadow-lg",
+      "hover:shadow-primary/50",
+      "bg-linear-to-r",
+      "from-primary",
+      "to-secondary",
+      "text-white",
+      "shadow-lg",
+      "shadow-primary/50"
     );
     var filterValue = button.dataset.filter;
     // items
@@ -71,6 +93,59 @@ filterButtons.forEach((button) => {
   });
 });
 /*[#4]carousel*/
+var currentIndex = 0;
+var w;
+if (window.innerWidth <= 639) {
+  w = 0;
+} else if (window.innerWidth <= 1023) {
+  w = 1;
+  console.log(window.innerWidth, w);
+} else {
+  w = 2;
+  console.log(window.innerWidth, w);
+}
+// var w = window.innerWidth < 1024 ? 0 : 2;
+var totalCards = testimonialCard.length - w;
+function updateCarousel() {
+  var cardWidth = testimonialCard[0].offsetWidth;
+  var offset = currentIndex * cardWidth;
+  testimonialsCarousel.style.transform = `translateX(${offset}px)`;
+  carouselIndicator.forEach((bullet, index) => {
+    if (index === currentIndex) {
+      bullet.classList.add("bg-accent", "scale-125");
+      bullet.classList.remove("bg-slate-400", "dark:bg-slate-600");
+      bullet.setAttribute("aria-selected", "true");
+    } else {
+      bullet.classList.remove("bg-accent", "scale-125");
+      bullet.classList.add("bg-slate-400", "dark:bg-slate-600");
+      bullet.setAttribute("aria-selected", "false");
+    }
+  });
+}
+nextTestimonialBTN.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = totalCards - 1;
+  }
+  updateCarousel();
+});
+prevTestimonialBTN.addEventListener("click", () => {
+  if (currentIndex < totalCards - 1) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  updateCarousel();
+});
+carouselIndicator.forEach((dot) => {
+  dot.addEventListener("click", (e) => {
+    currentIndex = parseInt(e.target.dataset.index);
+    updateCarousel();
+  });
+});
+// document.addEventListener("resize", updateCarousel);
+updateCarousel();
 /*[#5]sidebar*/
 /*[#6]scroll to top*/
 // show BTN

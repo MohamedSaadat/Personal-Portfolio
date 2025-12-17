@@ -1,20 +1,13 @@
 .showNavLinksList {
   transform: translate(0%);
 }
+.none{
+  display: none;
+}
+.right{
+  right: 320px;
+}
 /* ------------------- media ------------------- */
-@media all and (min-width: 1025px) {
-  .mobile-menu {
-    display: none;
-  }
-}
-/* #next-testimonial {
-  top: 115%;
-  left: 100px;
-}
-#prev-testimonial {
-  top: 115%;
-  right: 100px;
-} */
 @media all and (min-width: 320px) {
   #next-testimonial {
     top: 117%;
@@ -34,6 +27,20 @@
   #prev-testimonial {
     top: 120%;
     right: 100px;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .mobile-menu {
+    display: none;
+  }
+  #next-testimonial {
+    top: 50%;
+    left: 0;
+  }
+  #prev-testimonial {
+    top: 50%;
+    right: 0;
   }
 }
 

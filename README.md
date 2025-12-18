@@ -61,3 +61,48 @@ This project is an interactive web experience designed to showcase advanced fron
 ---
 
 ## 📁 Project Structure
+
+Project-Root/ │ ├── index.html # Main structure with Tailwind integration │ ├── /css │ └── style.css # Custom CSS for specialized animations & media queries │ ├── /js │ └── index.js # Core logic: Carousel, Theme Switcher, & LocalStorage │ └── README.md # Project documentation
+
+## 🚀 Getting Started
+
+### **1. Clone the Repository**
+
+```bash
+git clone https://github.com/MohamedSaadat/Personal-Portfolio.git
+```
+
+### **2. Open the Project**
+
+Simply open `index.html` in any browser:
+
+```bash
+open index.html
+```
+
+or double-click the file.
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+You are free to modify, reuse, and build upon it for personal or commercial use.
+
+---
+
+## 🖥️ Live Demo
+
+👉 **View the Dashboard Online:**
+
+```
+https://mohamedsaadat.github.io/What-s-For-Dinner/](https://mohamedsaadat.github.io/Personal-Portfolio
+```
+
+## 📧 Contact
+
+If you’d like to collaborate or discuss UI/UX or front-end design:
+
+**Author:** Mohamed Saadat
+
+**Email:** mohamed93saadat@gmail.com
+
+**GitHub:** [https://github.com/MohamedSaadat](https://github.com/MohamedSaadat)

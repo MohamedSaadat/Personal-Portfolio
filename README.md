@@ -94,7 +94,7 @@ You are free to modify, reuse, and build upon it for personal or commercial use.
 👉 **View the Dashboard Online:**
 
 ```
-https://mohamedsaadat.github.io/What-s-For-Dinner/](https://mohamedsaadat.github.io/Personal-Portfolio
+https://mohamedsaadat.github.io/Personal-Portfolio/
 ```
 
 ## 📧 Contact

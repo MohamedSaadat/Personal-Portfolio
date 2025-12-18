@@ -1,4 +1,4 @@
-# 🚀 Interactive Testimonial Slider & UI Customizer
+# 🚀 Personal Portfolio & UI Customizer
 
 A sophisticated, responsive landing page featuring a dynamic testimonial carousel and a comprehensive UI customization system (Dark Mode & Font Switching) with persistent storage.
 
@@ -6,12 +6,15 @@ A sophisticated, responsive landing page featuring a dynamic testimonial carouse
 
 ## 📛 Project Badges
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=fff)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=fff)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000)
-![LocalStorage](https://img.shields.io/badge/LocalStorage-Data_Persistence-blue?style=for-the-badge)
+![Frontend](https://img.shields.io/badge/Frontend-Development-blue?style=for-the-badge)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![Responsive](https://img.shields.io/badge/Responsive-Yes-green?style=for-the-badge)
 ![License-MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Project Status-Active](https://img.shields.io/badge/Status-Active-blue?style=for-the-badge)
 
 ---
 
@@ -62,25 +65,22 @@ This project is an interactive web experience designed to showcase advanced fron
 
 ## 📁 Project Structure
 
-Project-Root/ │ ├── index.html # Main structure with Tailwind integration │ ├── /css │ └── style.css # Custom CSS for specialized animations & media queries │ ├── /js │ └── index.js # Core logic: Carousel, Theme Switcher, & LocalStorage │ └── README.md # Project documentation
+Personal-Portfolio/
+│
+├── index.html                # Main portfolio page
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css         # Main styles (global / Tailwind output)
+│   │   └── myStyle.css       # Custom overrides & components styles
+│   │
+│   ├── js/
+│   │   └── index.js          # JavaScript logic (scroll, carousel, interactions)
+│   │
+│   └── imgs/                 # Images & assets (avatars, icons, etc.)
+│
+└── README.md                 # Project documentation
 
-## 🚀 Getting Started
-
-### **1. Clone the Repository**
-
-```bash
-git clone https://github.com/MohamedSaadat/Personal-Portfolio.git
-```
-
-### **2. Open the Project**
-
-Simply open `index.html` in any browser:
-
-```bash
-open index.html
-```
-
-or double-click the file.
 
 ## 📜 License
 

@@ -29,12 +29,12 @@ if (localStorage.getItem("lightAndDark") === "dark") {
   document.documentElement.classList.remove("dark");
 }
 // font check storage
-if (localStorage.getItem("font") !== null) {
-  document.body.classList.remove("font-tajawal");
-  document.body.classList.add(localStorage.getItem("font"));
-} else {
-  document.body.classList.add("font-tajawal");
-}
+// if (localStorage.getItem("font") !== null) {
+//   document.body.classList.remove("font-tajawal");
+//   document.body.classList.add(localStorage.getItem("font"));
+// } else {
+//   document.body.classList.add("font-tajawal");
+// }
 // color check storage
 if (localStorage.getItem("color") !== null) {
   document.documentElement.removeAttribute("style");
@@ -47,6 +47,7 @@ if (localStorage.getItem("color") !== null) {
   console.log("ok");
 }
 // ---------------------- Events ------------------------
+
 /*[#1]scrollSpy*/
 document.addEventListener("scroll", () => {
   var sectionId = "";
@@ -68,10 +69,12 @@ document.addEventListener("scroll", () => {
     }
   });
 });
+
 /*menu Toggle*/
 menuBTN.addEventListener("click", () => {
   navLinksList.classList.toggle("showNavLinksList");
 });
+
 /*[#2]theme Toggle*/
 themeToggleBTN.addEventListener("click", () => {
   document.documentElement.classList.toggle("dark");
@@ -81,6 +84,7 @@ themeToggleBTN.addEventListener("click", () => {
     localStorage.setItem("lightAndDark", "light");
   }
 });
+
 /*[#3]navs & tabs*/
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -126,22 +130,37 @@ filterButtons.forEach((button) => {
     });
   });
 });
+
 /*[#4]carousel*/
 var currentIndex = 0;
 var w;
-if (window.innerWidth <= 639) {
-  w = 0;
-  document.getElementById("screen2").classList.remove("none");
-  console.log(window.innerWidth, w);
-} else if (window.innerWidth <= 1023) {
-  w = 1;
-  document.getElementById("screen2").classList.add("none");
-} else {
-  w = 2;
-  document.getElementById("screen1").classList.add("none");
-  document.getElementById("screen2").classList.add("none");
+var totalCards;
+function checkWidth() {
+  if (window.innerWidth <= 639) {
+    w = 0;
+  } else if (window.innerWidth <= 1023) {
+    w = 1;
+  } else {
+    w = 2;
+  }
+  var screen1 = document.getElementById("screen1");
+  var screen2 = document.getElementById("screen2");
+  if (screen2) {
+    if (w === 0) screen2.classList.remove("none");
+    else screen2.classList.add("none");
+  }
+  if (screen1 && w === 2) {
+    screen1.classList.add("none");
+  }
+  if (typeof testimonialCard !== 'undefined') {
+    totalCards = testimonialCard.length - w;
+  }
+  if (typeof updateCarousel === "function") {
+    updateCarousel();
+  }
 }
-var totalCards = testimonialCard.length - w;
+window.addEventListener("resize", checkWidth);
+checkWidth();
 function updateCarousel() {
   var cardWidth = testimonialCard[0].offsetWidth;
   var offset = currentIndex * cardWidth;
@@ -158,6 +177,7 @@ function updateCarousel() {
     }
   });
 }
+// next
 nextTestimonialBTN.addEventListener("click", () => {
   if (currentIndex > 0) {
     currentIndex--;
@@ -166,6 +186,7 @@ nextTestimonialBTN.addEventListener("click", () => {
   }
   updateCarousel();
 });
+// back
 prevTestimonialBTN.addEventListener("click", () => {
   if (currentIndex < totalCards - 1) {
     currentIndex++;
@@ -174,12 +195,7 @@ prevTestimonialBTN.addEventListener("click", () => {
   }
   updateCarousel();
 });
-carouselIndicator.forEach((dot) => {
-  dot.addEventListener("click", (e) => {
-    currentIndex = parseInt(e.target.dataset.index);
-    updateCarousel();
-  });
-});
+
 /*[#5]sidebar*/
 // open & close slider
 settingsToggle.addEventListener("click", () => {
@@ -191,6 +207,13 @@ closeSettingsBTN.addEventListener("click", () => {
   settingsToggle.classList.remove("right");
 });
 // change font
+// font check storage
+if (localStorage.getItem("font") !== null) {
+  document.body.classList.remove("font-tajawal");
+  document.body.classList.add(localStorage.getItem("font"));
+} else {
+  document.body.classList.add("font-tajawal");
+}
 fontOption.forEach((button, index) => {
   var fonts = ["font-alexandria", "font-tajawal", "font-cairo"];
   button.addEventListener("click", () => {
@@ -203,9 +226,10 @@ fontOption.forEach((button, index) => {
         "font-cairo"
       );
       document.body.classList.add(fonts[index]);
+      localStorage.setItem("font", fonts[index]);
+      localStorage.setItem("active", "active");
       // for view check mark icon
       button.classList.add("active");
-      localStorage.setItem("font", fonts[index]);
     } else if (index === 1) {
       document.body.classList.remove(
         "font-alexandria",
@@ -213,9 +237,10 @@ fontOption.forEach((button, index) => {
         "font-cairo"
       );
       document.body.classList.add(fonts[index]);
-      // for viwe check mark icon
-      button.classList.add("active");
       localStorage.setItem("font", fonts[index]);
+      localStorage.setItem("active", "active");
+      // for view check mark icon
+      button.classList.add("active");
     } else {
       document.body.classList.remove(
         "font-alexandria",
@@ -223,9 +248,10 @@ fontOption.forEach((button, index) => {
         "font-cairo"
       );
       document.body.classList.add(fonts[index]);
-      // for viwe check mark icon
-      button.classList.add("active");
       localStorage.setItem("font", fonts[index]);
+      localStorage.setItem("active", "active");
+      // for view check mark icon
+      button.classList.add("active");
     }
   });
 });
@@ -268,8 +294,13 @@ themeColorsGrid.forEach((button, index) => {
 resetSettings.addEventListener("click", () => {
   localStorage.setItem("lightAndDark", "dark");
   localStorage.setItem("font", "font-tajawal");
+  localStorage.setItem(
+    "color",
+    "--color-primary: #6366f1; --color-secondary: #8b5cf6; --color-accent: #a855f7;"
+  );
   window.location.reload();
 });
+
 /*[#6]scroll to top*/
 // show BTN
 document.addEventListener("scroll", () => {
